@@ -1,5 +1,13 @@
 FROM alpine:latest
 
+MAINTAINER  Michael Lohr <michael@lohr-ffb.de>
+
+# enable community repos, since texlive and biber is only available in the community repo
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories
+
 # install make and texlive from the community repo
-RUN apk add -U --no-cache make \
-  && apk add -U --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community texlive-full biber
+RUN apk update\
+    && apk add texlive-full\
+    texlive-xetex\
+    biber\
+    make
