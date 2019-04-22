@@ -7,7 +7,7 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repos
 
 # install make and texlive from the community repo
 RUN apk update\
-    && apk add texlive-full\
+    && apk --no-cache add texlive-full\
     texlive-xetex\
     biber\
     make
