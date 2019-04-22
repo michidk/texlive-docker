@@ -1,7 +1,5 @@
 FROM alpine:latest
 
-# install make
+# install make and texlive from the community repo
 RUN apk add -U --no-cache make \
-
-# install texlive
-&& apk add -U --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community texlive-full
+  && apk add -U --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community texlive-full
